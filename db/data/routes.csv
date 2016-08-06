@@ -1,0 +1,11 @@
+name,schedule,waste_picker_id,color
+Ruta Vero,"Mar, Jue y Sab 15:00 a 18:00",1,#ff0000
+Ruta Sonia,"Mar, Jue y Sab 15:00 a 18:00",2,#00ff00
+Ruta Vanessa,"Mar, Jue y Sab 15:00 a 18:00",3,#0000ff
+Ruta Blanca,"Mar, Jue y Sab 15:00 a 18:00",4,#ff00ff
+Ruta Gladys,"Mar, Jue y Sab 15:00 a 18:00",5,#AEB404
+Ruta Carmen,"Mar, Jue y Sab 15:00 a 18:00",6,#00ffff
+Ruta Johana,"Mar, Jue y Sab 15:00 a 18:00",8,#ff0000
+Ruta Mercedes,"Mar, Jue y Sab 15:00 a 18:00",8,#DF7401
+Ruta María Morales,"Mar, Jue y Sab 15:00 a 18:00",9,#01A9DB
+Ruta María Simbaña,"Mar, Jue y Sab 15:00 a 18:00",10,#B4045F
