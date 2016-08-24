@@ -79,7 +79,7 @@ end
 gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'autoprefixer-rails'
-
+#gema usada para agregar calendario a la pagina waste_pickers/new
 gem 'bootstrap-datepicker-rails'
 #gema usada para convertir una direccion en  latitud y longitud
 gem 'geocoder'

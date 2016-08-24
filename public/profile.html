@@ -1,0 +1,113 @@
+<!DOCTYPE >
+<html lang="es_LA" ng-app="modelo" ng-csp >
+<head>
+ <meta charset="utf-8" />
+	<title>Perfil Reciclador@</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<script src="modulo_mapa.js"></script>
+	<script src="perfilCtrl.js"></script>
+	<script src="age-filter.js"></script>
+
+	<style>
+
+			#flecha{
+				font-size: 40px;
+				color: green;
+			}
+
+	</style>
+	
+</head>
+<body ng-controller="PerfilController">
+
+<script>
+
+
+
+
+foto=localStorage.getItem('foto');
+nombre=localStorage.getItem('nombre');
+mensaje=localStorage.getItem('mensaje');
+horario=localStorage.getItem('horario');
+asociacion=localStorage.getItem('asociacion');
+info=localStorage.getItem('info_adicional');
+
+
+
+$( document ).ready(function() {
+    
+
+    $('#img').attr("src",foto);
+    $('#nombre').text("@"+nombre);
+    $('#mensaje').text("''"+mensaje+"''");
+    $('#horario').text(horario);
+    $('#asociacion').text(asociacion);
+    $('#info_adicional').text(info);
+});
+
+
+
+
+
+
+
+</script>
+
+<div class="row">
+<a href="map_layers.html" class="col-md-1 col-xs-12" id="flecha"><span class="glyphicon glyphicon-arrow-left"></span></a>
+
+<img id="img" src="" class="col-md-2 col-md-offset-4 col-xs-4 col-xs-offset-4"></img>
+</div><br>
+<h1 id="nombre" class="text-center"></h1>
+<h2 id="mensaje" class="text-center"></h2>
+
+<div class="row">
+<div class="container">
+<table class="table table-hover">
+<tr>
+  <td><strong> Horario</strong></td>
+  <td><strong><h3 id="horario" class="text-right"></h3></strong></td>
+  
+</tr>
+
+<tr>
+  <td><strong>Asociacion</strong></td>
+ <td><strong><h3 id="asociacion" class="text-right"></h3></strong></td>
+  
+</tr>
+
+<tr>
+ <td><strong>Edad</strong></td>
+ <td><strong><h3 class="text-right">{{edad | ageFilter}} años de edad</h3></strong></td>
+  
+</tr>
+
+<tr>
+ <td><strong>Tiempo Reciclando</strong></td>
+ <td><strong><h3 class="text-right">{{tiempo_reci| ageFilter}} años reciclando</h3></strong></td>
+  
+</tr>
+
+<tr>
+  <td><strong>Informacion Adicional</strong></td>
+ <td><strong><h3 id="info_adicional" class="text-right"></h3></strong></td>
+  
+</tr>
+
+
+
+
+
+
+
+
+ 
+
+ </table>
+
+</div>
+</div>
+</body>
+</html>
