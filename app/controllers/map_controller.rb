@@ -23,7 +23,7 @@ class MapController < ApplicationController
 
 
     @geojson = Array.new
-
+      
     @line_strings.each do |line_string|
       @geojson << {
         type: 'Feature',
@@ -43,7 +43,7 @@ class MapController < ApplicationController
           :'waste_picker-birth_date' => line_string.route.waste_picker.birth_date,
           :'waste_picker-start_date' => line_string.route.waste_picker.start_date,
           :'affiliation-name' => (line_string.route.waste_picker.affiliation.name unless line_string.route.waste_picker.affiliation == nil),
-          :'color' => line_string.route.color,
+            :'color' => line_string.route.color.codigo,
           :'weight' => 15,
           :'opacity' => 0.4,
           popup: "<img src='#{url_prefix}#{line_string.route.waste_picker.image_url}'/>" +
@@ -99,6 +99,7 @@ end
     def affiliations
 
       @affiliations= Affiliation.all
+      url_prefix = serverUrl(request)
 
       @geojson_y = Array.new
 
@@ -115,6 +116,12 @@ end
               :'name' => affiliation.name,
           
               :'address' => affiliation.direccion,
+              :'image_url' => affiliation.image_url ? url_prefix + affiliation.image_url : nil,
+              :'sector' => affiliation.sector,
+              :'telefono' => affiliation.phone1,
+              :'email' => affiliation.email,
+
+
             }
           }
 

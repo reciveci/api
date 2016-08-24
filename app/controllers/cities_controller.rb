@@ -1,19 +1,24 @@
+include Utils
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
-include Utils
   respond_to :html
+  after_filter :cors_set_access_control_headers
 
-  def getAffliation(ciudad)
+  def getAffliation(city)
+    puts city.name
     url_prefix = serverUrl(request)
-    affiliations = Affiliation.where(ciudad:ciudad)
+    # affiliations = Affiliation.where(ciudad:ciudad)
+    affiliations = Affiliation.where(city:city)
+    puts affiliations.size
     resultAff = Array.new
     affiliations.each do |aff|
+      puts aff.publish
       if(aff.publish==true)
       puts aff.id
       resultAff << {
         id: aff.id,
         nombre:aff.name,
-        ciudad:aff.ciudad,
+        ciudad:aff.city.name,
         sector: aff.sector,
         direccion: aff.direccion,
         telefono: aff.phone1,
@@ -32,14 +37,16 @@ include Utils
 
 
   def affXcity
-   
+
     url_prefix = serverUrl(request)
-      cities=City.all.order('name ASC').limit(10)
+      cities=City.all.order('name ASC')
       @result = Array.new
-  
+
 
     cities.each do |city|
-      acopio=getAffliation(city.name);
+      puts '--------------------->'
+      puts city
+      acopio=getAffliation(city);
       if(acopio.length>0)
       @result << {
         id:city.id,
@@ -48,7 +55,7 @@ include Utils
         }
       end
     end
-    
+
 
     respond_to do |format|
       format.json { render json: @result }

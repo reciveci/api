@@ -1,21 +1,14 @@
 include Utils
+include ActionView::Helpers::TextHelper
 
 class ArticlesController < ApplicationController
   load_and_authorize_resource
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   after_filter :cors_set_access_control_headers
-  
-
-  def cors_set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-    headers['Access-Control-Max-Age'] = "1728000"
-  end
-
 
   # GET /articles/last.json
   def last
-    @articles = Article.order('created_at DESC').limit(10)
+    @articles = Article.order('created_at DESC').limit(50)
 
     #sleep(1)
 
@@ -45,9 +38,9 @@ class ArticlesController < ApplicationController
     if params[:date].present?
       # puts params[:date]
       date = params[:date].to_time + 1
-      @count = Article.where("created_at > ?",date).order('created_at DESC').limit(10).count
+      @count = Article.where("created_at > ?",date).order('created_at DESC').limit(30).count
     else
-      @count = Article.order('created_at DESC').limit(10).count
+      @count = Article.order('created_at DESC').limit(30).count
     end
 
     @result = {
@@ -87,12 +80,14 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    #@article.content = auto_link(@article.content, :html => { :target => '_blank' })
   end
 
   # POST /articles
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.content = auto_link(@article.content, :html => { :target => '_blank' })
 
     respond_to do |format|
       if @article.save
@@ -133,6 +128,8 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+      @article.content = auto_link(@article.content, :html => { :target => '_blank' })
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
