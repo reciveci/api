@@ -21,7 +21,10 @@
   </div>
   <div class="field">
     <%= f.label :color %><br>
-    <%= f.text_field :color, :required => true %>
+<!--    <%= f.text_field :color, :required => true %>-->
+      <%= f.select :color, options_for_select([['verde','#04B404'],['azul','#0000FF'],['rosa','#FA58F4'],['amarillo','#FFFF00'],['rojo','#FF0000'],['lila','#BF00FF'],['morado','#8904B1'],['celeste','#2E9AFE'],['verde claro','#58FA58'],['naranja','#FE642E'],['cafe','#8A4B08'],['verde oscuro','#006400']]) %>
+      
+ 
   </div>
   <div class="field">
     <%= f.label :waste_picker %><br />
