@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/last.json
   def last
-    @articles = Article.order('created_at DESC').limit(10)
+    @articles = Article.order('created_at DESC').limit(30)
 
     #sleep(1)
 
@@ -38,9 +38,9 @@ class ArticlesController < ApplicationController
     if params[:date].present?
       # puts params[:date]
       date = params[:date].to_time + 1
-      @count = Article.where("created_at > ?",date).order('created_at DESC').limit(10).count
+      @count = Article.where("created_at > ?",date).order('created_at DESC').limit(30).count
     else
-      @count = Article.order('created_at DESC').limit(10).count
+      @count = Article.order('created_at DESC').limit(30).count
     end
 
     @result = {
