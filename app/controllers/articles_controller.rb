@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/last.json
   def last
-    @articles = Article.order('created_at DESC').limit(30)
+    @articles = Article.order('created_at DESC').limit(50)
 
     #sleep(1)
 

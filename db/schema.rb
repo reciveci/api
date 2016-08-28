@@ -23,10 +23,12 @@ ActiveRecord::Schema.define(version: 20160825042917) do
     t.boolean  "publish",    limit: 255
     t.string   "direccion"
     t.string   "extension"
-    t.string   "ciudad"
+    t.integer  "city_id"
     t.float    "latitude"
     t.float    "longitud"
   end
+
+  add_index "affiliations", ["city_id"], name: "index_affiliations_on_city_id"
 
   create_table "articles", force: true do |t|
     t.string   "title"
