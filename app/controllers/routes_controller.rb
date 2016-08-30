@@ -76,7 +76,7 @@ class RoutesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def route_params
-      params.require(:route).permit(:name, :schedule, :color, :waste_picker_id)
+        params.require(:route).permit(:name, :schedule, :color_id, :waste_picker_id)
     end
 
     def prepare_waste_pickers
