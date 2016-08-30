@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825042917) do
+ActiveRecord::Schema.define(version: 20160830052518) do
 
   create_table "affiliations", force: true do |t|
     t.string   "name"
@@ -126,9 +126,10 @@ ActiveRecord::Schema.define(version: 20160825042917) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "waste_picker_id"
-    t.string   "color",           null: false
+    t.integer  "color_id"
   end
 
+  add_index "routes", ["color_id"], name: "index_routes_on_color_id"
   add_index "routes", ["waste_picker_id"], name: "index_routes_on_waste_picker_id"
 
   create_table "subcategories", force: true do |t|

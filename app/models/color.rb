@@ -1,3 +1,3 @@
 class Color < ActiveRecord::Base
-    belongs_to :route
+    has_many :routes
 end

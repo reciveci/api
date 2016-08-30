@@ -11,17 +11,17 @@
 ##########
 
 #default Colors
-Color.create(:nombre => "amarillo", :codigo => "#FFFF00")
+Color.create(:nombre => "amarillo", :codigo => "#AEB404")
 Color.create(:nombre => "azul", :codigo => "#0000FF")
 Color.create(:nombre => "cafe", :codigo => "#8B4513")
-Color.create(:nombre => "celeste", :codigo => "#2E9AFE")
+Color.create(:nombre => "celeste", :codigo => "#00ffff")
 Color.create(:nombre => "fucsia", :codigo => "#FF00FF")
 Color.create(:nombre => "purpura", :codigo => "#800080")
 Color.create(:nombre => "verde Oscuro", :codigo => "#008000")
-Color.create(:nombre => "verde Claro", :codigo => "#32CD32")
+Color.create(:nombre => "verde Claro", :codigo => "#00b300")
 Color.create(:nombre => "rojo", :codigo => "#FF0000")
 Color.create(:nombre => "rosa", :codigo => "#FF69B4")
-Color.create(:nombre => "naranja", :codigo => "#FFA500")
+Color.create(:nombre => "naranja", :codigo => "#DF7401")
 Color.create(:nombre => "oro", :codigo => "#DAA520")
 
 

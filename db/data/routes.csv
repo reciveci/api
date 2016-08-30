@@ -1,19 +1,19 @@
-name,schedule,waste_picker_id,color
-Ruta Vero,"Mar, Jue y Sab 15:00 a 18:00",1,#ff0000
-Ruta Sonia,"Mar, Jue y Sab 15:00 a 18:00",2,#00b300
-Ruta Vanessa,"Mar, Jue y Sab 15:00 a 18:00",3,#0000ff
-Ruta Blanca,"Mar, Jue y Sab 15:00 a 18:00",4,#ff00ff
-Ruta Gladys,"Mar, Jue y Sab 15:00 a 18:00",5,#AEB404
-Ruta Carmen,"Mar, Jue y Sab 15:00 a 18:00",6,#00ffff
-Ruta Johana,"Mar, Jue y Sab 15:00 a 18:00",8,#ff0000
-Ruta Mercedes,"Mar, Jue y Sab 15:00 a 18:00",8,#DF7401
-Ruta María Morales,"Mar, Jue y Sab 15:00 a 18:00",9,#01A9DB
-Ruta María Simbaña,"Mar, Jue y Sab 15:00 a 18:00",10,#96034f
-Ruta María Collaguazo,Lun. Mie y Vie 15:00 a 18:00,11,#ff0000
-Ruta Enrique Gualotuna,Lun. Mie y Vie 15:00 a 18:00,12,#00b300
-Ruta María Moposita,Lun. Mie y Vie 15:00 a 18:00,13,#ff66cc
-Ruta Ricardo Taco,Lun. Mie y Vie 15:00 a 18:00,14,#AEB404
-Ruta Jenny Taco,Lun. Mie y Vie 15:00 a 18:00,15,#96034f
-Ruta EPN,Lun. Mie y Vie 15:00 a 18:00,16,#0000ff
-Ruta Flia. Jácome,Lun. Mie y Vie 15:00 a 18:00,17,#00ffff
-Ruta América Pallasco,Lun. Mie y Vie 15:00 a 18:00,18,#DF7401
+name,schedule,waste_picker_id,color_id
+Ruta Vero,"Mar, Jue y Sab 15:00 a 18:00",1,9
+Ruta Sonia,"Mar, Jue y Sab 15:00 a 18:00",2,8
+Ruta Vanessa,"Mar, Jue y Sab 15:00 a 18:00",3,2
+Ruta Blanca,"Mar, Jue y Sab 15:00 a 18:00",4,5
+Ruta Gladys,"Mar, Jue y Sab 15:00 a 18:00",5,1
+Ruta Carmen,"Mar, Jue y Sab 15:00 a 18:00",6,4
+Ruta Johana,"Mar, Jue y Sab 15:00 a 18:00",8,9
+Ruta Mercedes,"Mar, Jue y Sab 15:00 a 18:00",8,11
+Ruta María Morales,"Mar, Jue y Sab 15:00 a 18:00",9,4
+Ruta María Simbaña,"Mar, Jue y Sab 15:00 a 18:00",10,6
+Ruta María Collaguazo,Lun. Mie y Vie 15:00 a 18:00,11,9
+Ruta Enrique Gualotuna,Lun. Mie y Vie 15:00 a 18:00,12,7
+Ruta María Moposita,Lun. Mie y Vie 15:00 a 18:00,13,10
+Ruta Ricardo Taco,Lun. Mie y Vie 15:00 a 18:00,14,1
+Ruta Jenny Taco,Lun. Mie y Vie 15:00 a 18:00,15,6
+Ruta EPN,Lun. Mie y Vie 15:00 a 18:00,16,2
+Ruta Flia. Jácome,Lun. Mie y Vie 15:00 a 18:00,17,4
+Ruta América Pallasco,Lun. Mie y Vie 15:00 a 18:00,18,11
