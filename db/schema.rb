@@ -48,15 +48,6 @@ ActiveRecord::Schema.define(version: 20160830052518) do
     t.datetime "updated_at"
   end
 
-  create_table "bussines", force: true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "categories", force: true do |t|
     t.string   "name"
     t.text     "description", limit: 255
