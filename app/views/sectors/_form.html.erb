@@ -1,0 +1,33 @@
+<%= form_for(@sector) do |f| %>
+  <% if @sector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sector.errors.count, "error") %> prohibited this sector from being saved:</h2>
+
+      <ul>
+      <% @sector.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :enabled %><br>
+    <%= f.check_box :enabled %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.collection_select(:city_id, @cities, :id, :name, :include_blank => "Please select") %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.collection_select(:color_id, @colors, :id, :nombre, :include_blank => "Please select") %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

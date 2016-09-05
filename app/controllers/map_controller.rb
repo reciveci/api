@@ -1,7 +1,7 @@
 include Utils
 
 class MapController < ApplicationController
-  load_and_authorize_resource :except => [:routes,:business,:affiliations]
+  load_and_authorize_resource :except => [:routes,:business,:affiliations,:sectors]
 
   after_filter :cors_set_access_control_headers
 
@@ -14,16 +14,13 @@ class MapController < ApplicationController
 
 
   def routes
-    
+
     @line_strings = LineString.all
 
-
-    #url_prefix = request.protocol + request.host + ":" + request.port.to_s + "/"
     url_prefix = serverUrl(request)
 
-
     @geojson = Array.new
-      
+
     @line_strings.each do |line_string|
       @geojson << {
         type: 'Feature',
@@ -43,11 +40,11 @@ class MapController < ApplicationController
           :'waste_picker-birth_date' => line_string.route.waste_picker.birth_date,
           :'waste_picker-start_date' => line_string.route.waste_picker.start_date,
           :'affiliation-name' => (line_string.route.waste_picker.affiliation.name unless line_string.route.waste_picker.affiliation == nil),
-            :'color' => line_string.route.color.codigo,
+          :'color' => line_string.route.color.codigo,
           :'weight' => 15,
           :'opacity' => 0.4,
           popup: "<img src='#{url_prefix}#{line_string.route.waste_picker.image_url}'/>" +
-                 "<br>" + 
+                 "<br>" +
                  "<strong>Reciclador:</strong> " +
                  "<a target='_blank' href='waste_pickers/#{line_string.route.waste_picker.id}'>#{line_string.route.waste_picker.name}</a>" +
                  "<br><strong>Horario:</strong> " +
@@ -68,11 +65,8 @@ class MapController < ApplicationController
 
     @geojson_x = Array.new
 
-
     @businesses.each do |business|
       @geojson_x << {
-
-        
         type: 'Feature',
         geometry: {
           type: 'Point',
@@ -80,28 +74,25 @@ class MapController < ApplicationController
           },
         properties: {
           :'name' => business.name,
-          
+
           :'address' => business.address,
-          
-          
         }
       }
-
     end
 
     respond_to do |format|
       format.json { render json: @geojson_x }
-      
     end
-end
+  end
 
 
-    def affiliations
+  def affiliations
 
       @affiliations= Affiliation.all
       url_prefix = serverUrl(request)
 
       @geojson_y = Array.new
+
 
 
       @affiliations.each do |affiliation|
@@ -114,34 +105,77 @@ end
               },
             properties: {
               :'name' => affiliation.name,
-          
+
               :'address' => affiliation.direccion,
               :'image_url' => affiliation.image_url ? url_prefix + affiliation.image_url : nil,
               :'sector' => affiliation.sector,
               :'telefono' => affiliation.phone1,
               :'email' => affiliation.email,
-
-
             }
           }
 
         end
       end
 
-          respond_to do |format|
-            format.json { render json: @geojson_y }
-      
+    respond_to do |format|
+      format.json { render json: @geojson_y }
+    end
+  end
+
+
+  def sectors
+
+    @sectors = Sector.all
+
+    @geojson = Array.new
+
+
+    @sectors.each do |sector|
+      sectorPoints = Array.new
+      # puts "--------------------->"
+      # puts sector.name
+      routes = sector.routes
+      routes.each do |route|
+        # puts "---------------->"
+        # puts route.name
+        line_strings = route.line_strings
+        line_strings.each do |line_string|
+          # puts "----------->"
+          # puts line_string.name
+          # puts line_string.coordinates
+          coordinates = JSON.parse line_string.coordinates
+          coordinates.each do |point|
+            sectorPoints << point
           end
+        end
+      end
 
-end
+      # puts sectorPoints.size
+      sectorArea = convex_hull(sectorPoints)
+      # puts "##############"
+      # puts sectorArea
+      newArea = Array.new
+      newArea << sectorArea
 
+      @geojson << {
+        type: 'Feature',
+        geometry: {
+          type: 'Polygon',
+          coordinates: newArea
+        },
+        properties: {
+          :'sector-name' => sector.name,
+          :'color' => sector.color.codigo,
+          :'weight' => 2,
+          :'opacity' => 0.3
+        }
+      }
+    end
 
-
-
-
-
-
-
+    respond_to do |format|
+      format.json { render json: @geojson }
+    end
+  end
 
 
 

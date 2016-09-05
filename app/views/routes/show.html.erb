@@ -20,5 +20,10 @@
   <%= @route.waste_picker ? @route.waste_picker.name : 'N/A' %>
 </p>
 
+<p>
+  <strong>Sector:</strong>
+  <%= @route.sector ? @route.sector.name : 'N/A' %>
+</p>
+
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>

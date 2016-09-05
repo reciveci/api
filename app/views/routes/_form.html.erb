@@ -21,13 +21,15 @@
   </div>
   <div class="field">
     <%= f.label :color %><br>
-<!--     f.text_field :color, :required => true %>-->
-      <%= f.collection_select(:color_id, @color, :id, :nombre, :include_blank => "Please select") %>
-      
+    <%= f.collection_select(:color_id, @colors, :id, :nombre, :include_blank => "Please select") %>
   </div>
   <div class="field">
     <%= f.label :waste_picker %><br />
     <%= f.collection_select(:waste_picker_id, @waste_pickers, :id, :name, :include_blank => "Please select") %>
+  </div>
+  <div class="field">
+    <%= f.label :sector %><br />
+    <%= f.collection_select(:sector_id, @sectors, :id, :name, :include_blank => "Please select") %>
   </div>
   <div class="actions">
     <%= f.submit %>

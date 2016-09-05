@@ -6,6 +6,10 @@ task :import, [:filename] => :environment do
     CSV.foreach('db/data/cities.csv', :headers => true) do |row|
       City.create!(row.to_hash)
     end
+    # Sectors
+    CSV.foreach('db/data/sectors.csv', :headers => true) do |row|
+      Sector.create!(row.to_hash)
+    end
     # Affiliations
     CSV.foreach('db/data/affiliations.csv', :headers => true) do |row|
       Affiliation.create!(row.to_hash)

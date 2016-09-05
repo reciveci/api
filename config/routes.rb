@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :sectors
+
   resources :cities
 
   scope "(:locale)", locale:  /es|en/ do
@@ -61,7 +63,8 @@ Rails.application.routes.draw do
     #resources :articles, :defaults => { :format => :json }
 
     get 'map/routes'
-    
+    get 'map/sectors' => 'map#sectors'
+
     get 'separate' => 'separate#complete'
 
     #creacion de rutas para el uso del API  de articles
