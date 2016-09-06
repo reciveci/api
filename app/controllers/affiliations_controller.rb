@@ -108,6 +108,6 @@ class AffiliationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def affiliation_params
-      params.require(:affiliation).permit(:name ,:ciudad , :sector , :direccion , :phone1 ,:email ,:latitude,:longitud, :publish ,:image,:extension)
+      params.require(:affiliation).permit(:name ,:city_id , :sector , :direccion , :phone1 ,:email ,:latitude,:longitud, :publish ,:image,:extension)
     end
 end

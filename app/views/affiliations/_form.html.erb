@@ -1,4 +1,4 @@
-<%= form_for(@affiliation) do |f| %>
+-<%= form_for(@affiliation) do |f| %>
 
 <br>
 <%=link_to "Ubicar Coordenadas","http://www.mapcoordinates.net/es",:target=>'_blank'%>
@@ -18,7 +18,7 @@
 <div class="form-group">
     <%= f.label :Ciudades%><br />
 
-    <%= f.collection_select(:city,City.all, :name, :name, {prompt:"Seleccione"},{class:"form-control"})%>
+    <%= f.collection_select(:city_id,City.all, :id, :name, {prompt:"Seleccione"},{class:"form-control"})%>
   </div>
 
 

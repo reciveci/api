@@ -7,7 +7,7 @@
 
 <p>
   <strong>Ciudad:</strong>
-  <%= @affiliation.city.name%>
+  <%= @affiliation.city ? @affiliation.city.name : "n/a"%>
 </p>
 
 
