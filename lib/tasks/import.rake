@@ -22,4 +22,8 @@ task :import, [:filename] => :environment do
     CSV.foreach('db/data/line_strings.csv', :headers => true) do |row|
       LineString.create!(row.to_hash)
     end
+    # Colors
+    CSV.foreach('db/data/colors.csv', :headers => true) do |row|
+      Color.create!(row.to_hash)
+    end
 end

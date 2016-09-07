@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :colors
+
   resources :cities
 
   scope "(:locale)", locale:  /es|en/ do
