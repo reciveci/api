@@ -17,7 +17,7 @@
         <td><%= route.name %></td>
         <td><%= route.schedule %></td>
         <td><%= route.color ? route.color.nombre : 'N/A' %></td>
-        <td><%= route.waste_picker ? route.waste_picker.name : 'N/A' %></td>
+        <td><%= route.waste_picker ? route.waste_picker.fullName : 'N/A' %></td>
         <td><%= route.sector ? route.sector.name : 'N/A' %></td>
         <td><%= link_to 'Show', route %></td>
         <td><%= link_to 'Edit', edit_route_path(route) %></td>

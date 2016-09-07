@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :waste_picker %><br />
-    <%= f.collection_select(:waste_picker_id, @waste_pickers, :id, :name, :include_blank => "Please select") %>
+    <%= f.collection_select(:waste_picker_id, @waste_pickers, :id, :fullName, :include_blank => "Please select") %>
   </div>
   <div class="field">
     <%= f.label :sector %><br />
