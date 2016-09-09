@@ -74,7 +74,7 @@ $affiliations = Affiliation.all
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def waste_picker_params
-        params.require(:waste_picker).permit(:name, :fullName, :birth_date, :start_date, :background, :message, :affiliation_id)
+        params.require(:waste_picker).permit(:name, :fullName, :gender, :birth_date, :start_date, :background, :message, :affiliation_id)
     end
 
     def prepare_affiliations
