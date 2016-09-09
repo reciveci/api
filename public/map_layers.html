@@ -68,12 +68,36 @@
     <br>
     <br>
     
-      <li><label >Recicladoras <input type="checkbox"></label></li><br>
-        <li><label >Negocios <input type="checkbox"></label></li><br>
-          <li><label >Acopios <input type="checkbox"></label></li><br>
+      <li><label >Reciclador@s <input type="checkbox" id="recicladoras"></label></li><br>
+      <!--<li><label >Negocios <input type="checkbox" id="negocios"></label></li><br>-->
+      <li><label >Acopios <input type="checkbox" id="acopios"></label></li><br><br><br><br>
      
       
+     
+     
+
+      
     </ul>
+
+
+    <a class="navbar-brand">SECTORES</a>
+
+     <ul class="nav navbar-nav navbar-left">
+    <br>
+    <br>
+    
+      
+     
+      <li><label id="floresta">Sector Floresta   <span class="glyphicon glyphicon-fullscreen"></span></label></li><br><br>
+      <li><label id="salvador">Sector Rep.del Salvador  <span class="glyphicon glyphicon-fullscreen"></span></label></li><br><br>
+      <li><label id="todos">Todos  <span class="glyphicon glyphicon-fullscreen"></span></label></li><br>
+     
+     
+
+      
+    </ul>
+
+
   </div><!-- /.navbar-collapse -->
 </nav>
 		</div>
@@ -95,22 +119,8 @@
  
 
 
-	<script>
-		/*var map = L.map('map2').setView([-0.181451, -78.480030], 16);
-
-
-  		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamExOTc5IiwiYSI6ImNpazcyZHFtcjAxOGJ2ZGt0NGNhamQ1cXQifQ.Kkz4bJY_fOE6PM9YaWzJIg', {
-      attribution: 'Map data &copy; <a href="http://openo streetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      maxZoom: 18,
-      id: 'mapbox.streets'
-  }).addTo(map);*/
-
-
-
- 
-
-
-
+<script>
+		
 modulo.controller('MapController',['$scope',function($scope) {
 
 
@@ -134,32 +144,26 @@ modulo.controller('MapController',['$scope',function($scope) {
 
 
 
- $scope.openProfile = function(feature) {
- window.location.href="profile.html"
-  
-  $scope.currentWastePicker = feature.properties;
- 
-  console.log(feature.properties);
- 
-  localStorage.setItem("foto",feature.properties["waste_picker-image_url"]);
-  localStorage.setItem("nombre",feature.properties["waste_picker-name"]);
-  localStorage.setItem("mensaje",feature.properties["waste_picker-message"]);
-  localStorage.setItem("horario",feature.properties["schedule"]);
-  localStorage.setItem("asociacion",feature.properties["affiliation-name"]);
-  localStorage.setItem("info_adicional",feature.properties["waste_picker-background"]);
-  localStorage.setItem("edad",feature.properties["waste_picker-birth_date"]);
-  localStorage.setItem("tiempo_Reci",feature.properties["waste_picker-start_date"]);
+     $scope.openProfile = function(feature) {
+     window.location.href="profile.html"
+      
+      $scope.currentWastePicker = feature.properties;
+     
+      //console.log(feature.properties);
+     
+      localStorage.setItem("foto",feature.properties["waste_picker-image_url"]);
+      localStorage.setItem("nombre",feature.properties["waste_picker-name"]);
+      localStorage.setItem("mensaje",feature.properties["waste_picker-message"]);
+      localStorage.setItem("horario",feature.properties["schedule"]);
+      localStorage.setItem("asociacion",feature.properties["affiliation-name"]);
+      localStorage.setItem("info_adicional",feature.properties["waste_picker-background"]);
+      localStorage.setItem("edad",feature.properties["waste_picker-birth_date"]);
+      localStorage.setItem("tiempo_Reci",feature.properties["waste_picker-start_date"]);
 
- 
-
-
-
- 
-};
+     
+    };
 
 
-
-  
    $scope.showLayer=function(layer) {
       if (!map.hasLayer(layer)) {
         layer.addTo(map);
@@ -247,6 +251,23 @@ modulo.controller('MapController',['$scope',function($scope) {
 
 
 
+    function onEachFeatureAffilliations(feature, layer) {
+       var container = $('<div />');
+                // Delegate all event handling for the container itself and its contents to the container
+                /*container.on('click', '.profile-link', function() {
+                    $scope.openAffiliation(feature);
+                });*/
+                // Insert whatever you want into the container, using whichever approach you prefer
+                container.html("<div class=map-poup >"+"<a class='profile-link' href='#'>"+feature.properties["name"]+"</div>"+
+                               "<div class=map-content-popup>"+feature.properties["address"]+"</div>"
+                              );
+
+                // Insert the container into the popup
+                layer.bindPopup(container[0]);
+        var imagen = new L.icon({iconUrl:"/images/acopio3.png", iconAnchor:[24,56]});
+        layer.setIcon(imagen);
+
+    }
 
 
 
@@ -267,7 +288,7 @@ modulo.controller('MapController',['$scope',function($scope) {
 
 
 
-var business;
+    var business;
 
    $.getJSON("http://localhost:5000/map/business.json", function(data) {
 
@@ -284,13 +305,15 @@ var business;
 
 
 
-var affiliations
-   $.getJSON("http://localhost:5000/map/affiliations.json", function(data) {
+  var affiliations
 
-      affiliations = data ;
-      console.log(affiliations);
-      L.geoJson(affiliations, {style: style, onEachFeature: onEachFeature}).addTo(map);
-    });
+ $.getJSON("http://localhost:5000/map/affiliations.json", function(data) {
+
+    affiliations = data ;
+    console.log(affiliations);
+    layerAffiliations=L.geoJson(affiliations, {style: style, onEachFeature: onEachFeatureAffilliations})//.addTo(map);
+     //layer.setIcon(imagen);
+  });
 
 
 
@@ -307,6 +330,73 @@ var sectors
 
 
 
+$('#floresta').on('click',function(){
+
+
+
+ map.setView(new L.LatLng(-0.181451, -78.480030), 16);
+
+
+ });
+
+
+
+$('#salvador').on('click',function(){
+
+
+
+ map.setView(new L.LatLng(-0.207280,-78.4871193), 16);
+
+
+ });
+
+$('#todos').on('click',function(){
+
+
+
+ map.setView(new L.LatLng(-0.1971527023738858, -78.49267959594727), 13);
+
+
+ });
+
+
+
+
+
+    $('input').on('click',function(){
+
+
+      value=$(this).attr('id');
+      checked=$(this).prop('checked');
+
+          
+      
+      if(value=="recicladoras"){
+          if(checked==true){
+
+
+          $scope.showLayerSectionsOrRoutes();
+          }
+          else{
+
+           $scope.hideLayer(layerRoutes);
+          }
+      }
+      else if(value=="acopios"){
+          if(checked==true){
+
+
+          $scope.showLayer(layerAffiliations);
+          }
+          else{
+
+           $scope.hideLayer(layerAffiliations);
+          }
+      }
+
+
+
+    })
 
 
 

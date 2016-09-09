@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
 
 
+
   resources :sectors
+
+  resources :colors
+
 
   resources :cities
 
