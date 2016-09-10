@@ -1,19 +1,19 @@
-name,affiliation_id,birth_date,start_date,background,message
-Vero,1,1990-04-29,2000-11-01,Madre de dos hijas,Darles un mejor bienestar a mis hijas
-Sonia,1,1987-10-14,1998-11-01,Madre de tres hijos. Empezó a reciclar a los 10 años,Mejor porvenir
-Vanessa,1,1996-12-05,2007-11-01,Madre de un hijo,Por un planeta limpio y por el futuro de mi hijo
-Blanca,1,1977-05-05,1995-11-01,Madre de tres hijos,"Futuro mejor, cambio de vida"
-Gladys,1,1980-12-29,2000-11-01,Madre de tres hijos,Darles un futuro mejor a mis hijos y terminar mi casa
-Carmen,1,1940-11-23,1985-11-01,Madre de tres hijos,"Vivir bien, vivir mejor"
-Johana,1,1988-03-27,1999-11-01,Madre de cuatro hijos,Tener un taller de corte y confección
-Mercedes,1,1961-07-02,1985-11-01,Madre de ocho hijos,"Hacer mi casa, tener una economía y dar estudio a los hijos"
-María,1,1958-07-09,1977-11-01,Madre de ocho hijos,Terminar mi casa y que tenga más vida para hacerle estudiar a mi hijo
-María,1,1995-07-23,2000-11-01,Madre de un hijo,Luchar y seguir adelante. Superar todos los obstáculos de la vida
-María C.,2,1990-01-01,2000-11-01,n/a,n/a
-Enrique,2,1948-01-01,1996-01-01,Padre de 6 hijos,Tener un terreno y casa propia para compartir con mis hijos
-María M.,2,1990-01-01,2000-11-01,n/a,n/a
-Ricardo,2,1990-01-01,2000-11-01,n/a,n/a
-Jenny,2,1990-01-01,2000-11-01,n/a,n/a
-María Machay,2,1973-01-01,2014-01-01,Madre de cuatro hijos,"Tener una casa propia, ser empresaria del reciclaje, que mis hijos sean profesionales"
-Flia. Jácome,2,1990-01-01,2000-11-01,n/a,n/a
-América,2,1960-01-01,2001-01-01,Madre de una hija y abuela de dos nietos,"Tener una casa para poder vivir con los nietos, y que tengan espacio para jugar"
+name,fullName,gender,affiliation_id,birth_date,start_date,background,message
+Vero,,femenino,1,1990-04-29,2000-11-01,Madre de dos hijas,Darles un mejor bienestar a mis hijas
+Sonia,,femenino,1,1987-10-14,1998-11-01,Madre de tres hijos. Empezó a reciclar a los 10 años,Mejor porvenir
+Vanessa,,femenino,1,1996-12-05,2007-11-01,Madre de un hijo,Por un planeta limpio y por el futuro de mi hijo
+Blanca,,femenino,1,1977-05-05,1995-11-01,Madre de tres hijos,"Futuro mejor, cambio de vida"
+Gladys,,femenino,1,1980-12-29,2000-11-01,Madre de tres hijos,Darles un futuro mejor a mis hijos y terminar mi casa
+Carmen,,femenino,1,1940-11-23,1985-11-01,Madre de tres hijos,"Vivir bien, vivir mejor"
+Johana,,femenino,1,1988-03-27,1999-11-01,Madre de cuatro hijos,Tener un taller de corte y confección
+Mercedes,,femenino,1,1961-07-02,1985-11-01,Madre de ocho hijos,"Hacer mi casa, tener una economía y dar estudio a los hijos"
+María,,femenino,1,1958-07-09,1977-11-01,Madre de ocho hijos,Terminar mi casa y que tenga más vida para hacerle estudiar a mi hijo
+María,,femenino,1,1995-07-23,2000-11-01,Madre de un hijo,Luchar y seguir adelante. Superar todos los obstáculos de la vida
+María C.,,femenino,2,1990-01-01,2000-11-01,n/a,n/a
+Enrique,,masculino,2,1948-01-01,1996-01-01,Padre de 6 hijos,Tener un terreno y casa propia para compartir con mis hijos
+María M.,,femenino,2,1990-01-01,2000-11-01,n/a,n/a
+Ricardo,,masculino,2,1990-01-01,2000-11-01,n/a,n/a
+Jenny,,femenino,2,1990-01-01,2000-11-01,n/a,n/a
+María Machay,,femenino,2,1973-01-01,2014-01-01,Madre de cuatro hijos,"Tener una casa propia, ser empresaria del reciclaje, que mis hijos sean profesionales"
+Flia. Jácome,,femenino,2,1990-01-01,2000-11-01,n/a,n/a
+América,,femenino,2,1960-01-01,2001-01-01,Madre de una hija y abuela de dos nietos,"Tener una casa para poder vivir con los nietos, y que tengan espacio para jugar"

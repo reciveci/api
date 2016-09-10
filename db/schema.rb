@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160907031518) do
+=======
+ActiveRecord::Schema.define(version: 20160909002839) do
+>>>>>>> 549c2af834f6c0b36e0f6f595b174e4720bb12f2
 
   create_table "affiliations", force: true do |t|
     t.string   "name"
@@ -189,6 +193,10 @@ ActiveRecord::Schema.define(version: 20160907031518) do
     t.datetime "updated_at"
     t.integer  "affiliation_id"
     t.string   "fullName"
+<<<<<<< HEAD
+=======
+    t.string   "gender"
+>>>>>>> 549c2af834f6c0b36e0f6f595b174e4720bb12f2
   end
 
   add_index "waste_pickers", ["affiliation_id"], name: "index_waste_pickers_on_affiliation_id"

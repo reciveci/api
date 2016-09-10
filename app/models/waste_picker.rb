@@ -7,6 +7,7 @@ class WastePicker < ActiveRecord::Base
 
 
 	}
+    validates :gender,presence:{message:"Debe Seleccionar un género"}
 	validates :affiliation_id ,presence:{message:"Debe Seleccionar una asociacion"}
 	validates :birth_date,presence:{message:"Debe Seleccionar la fecha de nacimiento"}
 	validates :start_date ,presence:{message:"Debe Seleccionar la fecha de inicio"}
@@ -31,14 +32,19 @@ class WastePicker < ActiveRecord::Base
 		image_base_path = "assets/images/waste_pickers/"
 
 
-		current_path = Dir.pwd
+        current_path = Dir.pwd  
 		base_path = current_path + "/public/"
 		image_path = image_base_path + "#{id}.jpg"
 
 		if File.exist?(base_path + image_path) then
 			image_path
 		else
-			image_base_path + "0.jpg"
+            if gender == "masculino" then
+                image_base_path + "manIcon.ico"
+            else
+                image_base_path + "womanIcon.jpg"
+            end    
+			
 		end
 	end
 

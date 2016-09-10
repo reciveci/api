@@ -19,8 +19,16 @@
       <%= f.text_field :fullName,:class=>'form-control' %>
   </div>
   <div class="form-group">
+<<<<<<< HEAD
     <%= f.label :Asociacion%><br />
     
+=======
+      <%= f.label :Genero%><br>
+      <%= f.select :gender, options_for_select([['Masculino','masculino'], ['Femenino','femenino']], 2),{prompt:"Seleccione"}, {class: "form-control"}%>
+  </div>
+  <div class="form-group">
+    <%= f.label :Asociacion%><br />    
+>>>>>>> 549c2af834f6c0b36e0f6f595b174e4720bb12f2
     <%= f.collection_select(:affiliation_id, $affiliations, :id, :name, {prompt:"Seleccione"},{class:"form-control"})%>
     
   </div>

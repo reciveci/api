@@ -1,0 +1,30 @@
+.full{
+
+height: 100%;
+
+
+}
+
+.responsive{
+margin-bottom: 0px;
+}
+
+
+ #map2 {
+          height: 100%;
+          
+      }
+
+      #nav_bar{
+      padding-right: 0px;
+
+      }
+
+      #mapa{
+    padding-left: 0px;
+
+      }
+      #flecha{
+				font-size: 40px;
+				color: green;
+			}
