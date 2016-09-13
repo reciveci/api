@@ -167,7 +167,7 @@ modulo.controller('MapController',['$scope',function($scope) {
 
     var business;
 
-   $.getJSON("http://localhost:5000/map/business.json", function(data) {
+   $.getJSON("http://localhost:3000/map/business.json", function(data) {
 
       business = data ;
       console.log(business);
@@ -184,7 +184,7 @@ modulo.controller('MapController',['$scope',function($scope) {
 
   var affiliations
 
- $.getJSON("http://localhost:5000/map/affiliations.json", function(data) {
+ $.getJSON("http://localhost:3000/map/affiliations.json", function(data) {
 
     affiliations = data ;
     console.log(affiliations);
@@ -198,7 +198,7 @@ modulo.controller('MapController',['$scope',function($scope) {
 
 
 var sectors
-   $.getJSON("http://localhost:5000/map/sectors.json", function(data) {
+   $.getJSON("http://localhost:3000/map/sectors.json", function(data) {
 
       sectors = data ;
       console.log(sectors);

@@ -87,8 +87,6 @@ gem 'geocoder'
 #is a helpful gem that makes working with angular templates far easier. 
 gem 'angular-rails-templates'
 
-gem 'bower-rails' 
-
 gem "rails_autolink"
 
 

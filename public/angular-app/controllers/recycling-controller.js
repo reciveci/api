@@ -1,5 +1,5 @@
-myApp.controller('recyclingCtrl', function($scope, $recycling, $timeout) {
-$scope.mensaje = " hola mundo!!";
+separa.controller('recyclingCtrl', function($scope) {
+$scope.mensaje = "hola mundo!!";
 //    $scope.categories_1 = [];
 //    $scope.categories_2 = [];
 //    $scope.success = true;
