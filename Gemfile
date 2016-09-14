@@ -84,9 +84,6 @@ gem 'bootstrap-datepicker-rails'
 #gema usada para convertir una direccion en  latitud y longitud
 gem 'geocoder'
 
-#is a helpful gem that makes working with angular templates far easier. 
-gem 'angular-rails-templates'
-
 gem "rails_autolink"
 
 
