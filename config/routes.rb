@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :cities
 
-  scope "(:locale)", locale:  /es|en/ do
+  #scope "(:locale)", locale:  /es|en/ do
 
     #establecemos el controlador registrations personalizado para usarlo en Devise
     devise_for :users, :controllers => {:registrations => "registrations"}
@@ -87,4 +87,4 @@ Rails.application.routes.draw do
      get '/admin' => 'panel#index'
   end
 
-end
+#end

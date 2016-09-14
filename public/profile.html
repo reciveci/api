@@ -6,18 +6,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-	<script src="modulo_mapa.js"></script>
-	<script src="perfilCtrl.js"></script>
-	<script src="age-filter.js"></script>
+	<link rel="stylesheet" href="assets/css/estilos.css">
+	<script src="angular-app/modules/modulo_mapa.js"></script>
+	<script src="angular-app/controllers/perfilCtrl.js"></script>
+	<script src="angular-app/filters/age-filter.js"></script>
 
-	<style>
-
-			#flecha{
-				font-size: 40px;
-				color: green;
-			}
-
-	</style>
+	
 	
 </head>
 <body ng-controller="PerfilController">
@@ -27,25 +21,7 @@
 
 
 
-foto=localStorage.getItem('foto');
-nombre=localStorage.getItem('nombre');
-mensaje=localStorage.getItem('mensaje');
-horario=localStorage.getItem('horario');
-asociacion=localStorage.getItem('asociacion');
-info=localStorage.getItem('info_adicional');
 
-
-
-$( document ).ready(function() {
-    
-
-    $('#img').attr("src",foto);
-    $('#nombre').text("@"+nombre);
-    $('#mensaje').text("''"+mensaje+"''");
-    $('#horario').text(horario);
-    $('#asociacion').text(asociacion);
-    $('#info_adicional').text(info);
-});
 
 
 
@@ -91,8 +67,8 @@ $( document ).ready(function() {
 </tr>
 
 <tr>
-  <td><strong>Informacion Adicional</strong></td>
- <td><strong><h3 id="info_adicional" class="text-right"></h3></strong></td>
+  <td><strong>infoformacion Adicional</strong></td>
+ <td><strong><h3 id="info_adicional" class="text-right"></h3></stron																																							g></td>
   
 </tr>
 

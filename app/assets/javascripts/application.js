@@ -14,20 +14,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require angular
-//= require angular-animate
-//= require angular-resource
-//= require angular-ui-router
-//= require angular-ui-bootstrap
-//= require angular-rails-templates
-//= require articles_module
+//= require angular 
+//= require angular-rails-templates 
 //= require_tree .
-//= require_tree ./angular
-//= require_tree ./bower_components
-//= require_tree ../templates
-
-
-
 
  
 
