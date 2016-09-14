@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907031518) do
+ActiveRecord::Schema.define(version: 20160909002839) do
 
   create_table "affiliations", force: true do |t|
     t.string   "name"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 20160907031518) do
     t.datetime "updated_at"
     t.integer  "affiliation_id"
     t.string   "fullName"
+    t.string   "gender"
   end
 
   add_index "waste_pickers", ["affiliation_id"], name: "index_waste_pickers_on_affiliation_id"

@@ -12,6 +12,7 @@
     <tr>
       <th>Nombre</th>
       <th>Nombres Completos</th>
+      <th>Género</th>
       <th>Asociacion</th>
       <th>Fecha de Nacimiento</th>
       <th>Fecha de Inicio</th>
@@ -26,6 +27,7 @@
       <tr>
         <td><%= link_to waste_picker.name , waste_picker%></td>
         <td><%= waste_picker.fullName ? waste_picker.fullName : 'N/A' %></td>
+        <td><%= waste_picker.gender ? waste_picker.gender : 'N/A' %></td>
         <td><%= waste_picker.affiliation ? waste_picker.affiliation.name : 'N/A' %></td>
         <td><%= waste_picker.birth_date %></td>
         <td><%= waste_picker.start_date %></td>
