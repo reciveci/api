@@ -1,1 +1,1 @@
-var separa = angular.module("separa",[]);
+var separa = angular.module("separaModule",['ngResource']);

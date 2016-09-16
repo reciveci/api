@@ -1,8 +1,8 @@
 separa.factory('$properties',[function(){
 
   var properties = {
-    ip:"192.168.124.1",
-    port:"3000"
+    ip:"api-reciveci.rhcloud.com",
+    port:"80"
  	};
 
 	return properties;
