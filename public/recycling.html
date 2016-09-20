@@ -10,7 +10,7 @@
         <div ng-controller="recyclingCtrl">
             <div class="row">
                 <div class="col-md-offset-1 col-md-10">
-                    <div class="reciclables">
+                    <div class="waste-type-name recyclable">
                         <h1>Reciclables</h1>
                         <div class="categoria" ng-repeat="cat in separate[0].categories_col1" ng-click="showSubcategory(cat, 'REC')">
                             <div>
@@ -24,9 +24,9 @@
                         </div>
                     </div>
 
-                    <div class="noReciclables">
+                    <div class="waste-type-name no-recyclable">
                         <h1>No Reciclables</h1>
-                        <div class="categoria" ng-repeat="cat in separate[1].categories_col1" ng-click="showSubcategory(cat, 'NRC')">
+                        <div class="categoria" ng-repeat="cat in separate[1].categories_col1" ng-click="showSubcategory(cat, 'NRE')">
                             <div>
                                 <a data-toggle="modal" data-target="#myModal" href=""><img src="{{cat.image_url}}" alt=""></a>    
                             </div>
@@ -40,31 +40,21 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h2 class="modal-title" id="myModalLabel">{{currentCategory.name}}</h2>
+                                <h1 class="modal-title" id="myModalLabel">{{currentCategory.name}}</h1>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
+                                <div class="row" ng-repeat="sub in currentCategory.subcategories" class="subcat-list-item">
                                     <div class="col-md-3">
-                                        <img src="{{currentCategory.subcategories[0].image_url}}" alt="">      
+                                        <img class="subcat-pic" ng-src="{{sub.image_url}}" ng-class="{ 'back-recyclable': currentWasteType == 'REC', 'back-no-recyclable': currentWasteType == 'NRE' }" ng-click="showImage(sub)">      
                                     </div>
                                     <div class="col-md-9">
-                                        <h3>{{currentCategory.subcategories[0].name}}</h3>      
-                                        <h4>{{currentCategory.subcategories[0].examples}}</h4> 
+                                        <h3 ng-class="{ 'recyclable': currentWasteType == 'REC', 'no-recyclable': currentWasteType == 'NRE' }">{{sub.name}}</h3>      
+                                        <h4 class="subcat-examples">{{sub.examples}}</h4> 
                                         <div class="alert alert-warning">
-                                            <h4><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>{{currentCategory.subcategories[0].instructions}}</h4>
+                                            <h4>
+                                                <span class="glyphicon glyphicon-info-sign" aria-hidden="true">                                                 </span>{{sub.instructions}}
+                                            </h4>
                                         </div>   
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="{{currentCategory.subcategories[1].image_url}}" alt="">      
-                                    </div>
-                                    <div class="col-md-9">
-                                        <h3>{{currentCategory.subcategories[1].name}}</h3>      
-                                        <h4>{{currentCategory.subcategories[1].examples}}</h4>      
-                                        <div class="alert alert-warning">
-                                            <h4><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>{{currentCategory.subcategories[1].instructions}}</h4>
-                                        </div>                                      
                                     </div>
                                 </div>
                             </div>

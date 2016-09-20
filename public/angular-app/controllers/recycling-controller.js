@@ -20,28 +20,12 @@ separa.controller('recyclingCtrl',['$scope','recyclingFactory',function($scope, 
 
     });
 
-
-    //    recyclingFactory.query().$promise.then(
-    //        function(respuesta){
-    //            $scope.usuarios = respuesta;
-    //            console.log($scope.usuarios);
-    //        },
-    //        function(err){
-    //            console.log(err);
-    //        });
-
-
         $scope.showSubcategory = function(category, wasteType) {
           //$scope.recyclingNavigator.pushPage('subcategories.html');
           $scope.currentCategory = category;
           $scope.currentWasteType = wasteType;
         }
-    //
-    //
-    //
-    //    $scope.showImage = function(subcat) {
-    //      subcatImageModal.show();
-    //      $scope.subcat = subcat;
-    //    }
+
+
 
 }]);
