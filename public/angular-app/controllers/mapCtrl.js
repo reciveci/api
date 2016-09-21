@@ -135,13 +135,13 @@ modulo.controller('MapController',['$scope',function($scope) {
                     $scope.openAffiliation(feature);
                 });*/
                 // Insert whatever you want into the container, using whichever approach you prefer
-                container.html("<div class=map-poup >"+"<a class='profile-link' href='#'>"+feature.properties["name"]+"</div>"+
+                container.html("<div class=map-poup>"+feature.properties["name"]+"</div>"+"<br>"+
                                "<div class=map-content-popup>"+feature.properties["address"]+"</div>"
                               );
 
                 // Insert the container into the popup
                 layer.bindPopup(container[0]);
-        var imagen = new L.icon({iconUrl:"/images/acopio3.png", iconAnchor:[24,56]});
+        var imagen = new L.icon({iconUrl:"assets/images/acopio3.png", iconAnchor:[24,56]});
         layer.setIcon(imagen);
 
     }
@@ -151,7 +151,7 @@ modulo.controller('MapController',['$scope',function($scope) {
 
     var routes;
 
-   $.getJSON("http://api-reciveci.rhcloud.com/map/routes.json", function(data) {
+   $.getJSON("http://localhost:5000/map/routes.json", function(data) {
 
       routes = data ;
      
@@ -167,7 +167,7 @@ modulo.controller('MapController',['$scope',function($scope) {
 
     var business;
 
-   $.getJSON("http://localhost:3000/map/business.json", function(data) {
+   $.getJSON("http://localhost:5000/map/business.json", function(data) {
 
       business = data ;
       console.log(business);
@@ -184,7 +184,7 @@ modulo.controller('MapController',['$scope',function($scope) {
 
   var affiliations
 
- $.getJSON("http://localhost:3000/map/affiliations.json", function(data) {
+ $.getJSON("http://localhost:5000/map/affiliations.json", function(data) {
 
     affiliations = data ;
     console.log(affiliations);
@@ -198,7 +198,7 @@ modulo.controller('MapController',['$scope',function($scope) {
 
 
 var sectors
-   $.getJSON("http://localhost:3000/map/sectors.json", function(data) {
+   $.getJSON("http://localhost:5000/map/sectors.json", function(data) {
 
       sectors = data ;
       console.log(sectors);
@@ -207,7 +207,7 @@ var sectors
 
 
 
-$('#floresta').on('click',function(){
+$('#salvador').on('click',function(){
 
 
 
@@ -218,7 +218,7 @@ $('#floresta').on('click',function(){
 
 
 
-$('#salvador').on('click',function(){
+$('#floresta').on('click',function(){
 
 
 
@@ -257,6 +257,7 @@ $('#todos').on('click',function(){
           else{
 
            $scope.hideLayer(layerRoutes);
+           $scope.hideLayer(layerSectors);
           }
       }
       else if(value=="acopios"){
