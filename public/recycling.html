@@ -1,21 +1,80 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="separa">
+<html lang="en" ng-app="separaModule">
     <head>
         <meta charset="UTF-8">
         <title></title>
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/recycling-estilos.css">
     </head>
     <body>
         <div ng-controller="recyclingCtrl">
-            <h1>{{mensaje}}</h1>
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                    <div class="waste-type-name recyclable">
+                        <h1>Reciclables</h1>
+                        <div class="categoria" ng-repeat="cat in separate[0].categories_col1" ng-click="showSubcategory(cat, 'REC')">
+                            <div>
+                                <a data-toggle="modal" data-target="#myModal" href=""><img src="{{cat.image_url}}" alt=""></a>                               
+                            </div>
+                        </div>
+                        <div class="categoria" ng-repeat="cat in separate[0].categories_col2" ng-click="showSubcategory(cat, 'REC')">
+                            <div>
+                                <a data-toggle="modal" data-target="#myModal" href=""><img src="{{cat.image_url}}" alt=""></a>    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="waste-type-name no-recyclable">
+                        <h1>No Reciclables</h1>
+                        <div class="categoria" ng-repeat="cat in separate[1].categories_col1" ng-click="showSubcategory(cat, 'NRE')">
+                            <div>
+                                <a data-toggle="modal" data-target="#myModal" href=""><img src="{{cat.image_url}}" alt=""></a>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h1 class="modal-title" id="myModalLabel">{{currentCategory.name}}</h1>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row" ng-repeat="sub in currentCategory.subcategories" class="subcat-list-item">
+                                    <div class="col-md-3">
+                                        <img class="subcat-pic" ng-src="{{sub.image_url}}" ng-class="{ 'back-recyclable': currentWasteType == 'REC', 'back-no-recyclable': currentWasteType == 'NRE' }" ng-click="showImage(sub)">      
+                                    </div>
+                                    <div class="col-md-9">
+                                        <h3 ng-class="{ 'recyclable': currentWasteType == 'REC', 'no-recyclable': currentWasteType == 'NRE' }">{{sub.name}}</h3>      
+                                        <h4 class="subcat-examples">{{sub.examples}}</h4> 
+                                        <div class="alert alert-warning">
+                                            <h4>
+                                                <span class="glyphicon glyphicon-info-sign" aria-hidden="true">                                                 </span>{{sub.instructions}}
+                                            </h4>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script src="assets/javascripts/angular.min.js"></script>
+        <script src="assets/javascripts/angular-resource.min.js"></script>
         <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="assets/javascripts/bootstrap.min.js"></script>
         <!--modulos-->
         <script type="text/javascript" src="angular-app/modules/recycling-modulo.js"></script>
         <!--services-->
+        <script type="text/javascript" src="angular-app/factories/file-propierties.js"></script>
+        <script type="text/javascript" src="angular-app/factories/recycling-factory.js"></script>
 
         <!--controllers-->
         <script type="text/javascript" src="angular-app/controllers/recycling-controller.js"></script>

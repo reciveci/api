@@ -1,12 +1,12 @@
 <%= form_for(@waste_picker) do |f| %>
-  
+
       <% @waste_picker.errors.full_messages.each do |message| %>
       <div class="alert alert-danger">
         *<%= message %>
         </div>
       <% end %>
-      
-    
+
+
 <div class="row">
 <div class="col-md-6 ">
 
@@ -19,28 +19,22 @@
       <%= f.text_field :fullName,:class=>'form-control' %>
   </div>
   <div class="form-group">
-<<<<<<< HEAD
-    <%= f.label :Asociacion%><br />
-    
-=======
       <%= f.label :Genero%><br>
       <%= f.select :gender, options_for_select([['Masculino','masculino'], ['Femenino','femenino']], 2),{prompt:"Seleccione"}, {class: "form-control"}%>
   </div>
   <div class="form-group">
-    <%= f.label :Asociacion%><br />    
->>>>>>> 549c2af834f6c0b36e0f6f595b174e4720bb12f2
+    <%= f.label :Asociacion%><br />
     <%= f.collection_select(:affiliation_id, $affiliations, :id, :name, {prompt:"Seleccione"},{class:"form-control"})%>
-    
   </div>
 
   <div class="form-group">
     <%= f.label :Fecha_de_Nacimiento%><br>
     <%= f.date_field :birth_date, 'data-behaviour' => 'datepicker',:class=>'form-control' ,:autocomplete=> :off%>
-  
+
   <div class="form-group">
     <%= f.label :Fecha_de_inicio %><br>
     <%= f.date_field :start_date, 'data-behaviour' => 'datepicker',:class=>'form-control' ,:autocomplete=> :off%>
-    
+
 
   </div>
   <div class="form-group">
@@ -54,7 +48,7 @@
   <div class="actions">
     <%= f.submit "Guardar",:class=>'btn btn-primary'%>
   </div>
-</div> 
+</div>
 </div>
 
 <% end %>

@@ -27,10 +27,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    angular-rails-templates (0.2.0)
-      railties (>= 3.1)
-      sprockets (~> 2)
-      tilt
     arel (5.0.1.20140414130214)
     autoprefixer-rails (6.3.6)
       execjs
@@ -39,7 +35,6 @@ GEM
       railties (>= 3.0)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
-    bower-rails (0.10.0)
     builder (3.2.2)
     cancan (1.6.10)
     coffee-rails (4.0.1)
@@ -140,11 +135,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angular-rails-templates
   autoprefixer-rails
   bootstrap-datepicker-rails
   bootstrap-sass (~> 3.2.0)
-  bower-rails
   cancan
   coffee-rails (~> 4.0.0)
   devise

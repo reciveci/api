@@ -1,0 +1,60 @@
+.categoria {
+    position: relative;
+    display: inline-block;
+}
+
+.category-name {
+  font-family:'ArialRounded', sans-serif;
+  font-size: 22px;
+  text-align: right;
+  /*background-color: red;*/
+  vertical-align: top;
+  display: inline-block;
+  line-height: 44px;
+  height: 44px;
+}
+
+
+.subcat-pic {
+  width: 100px;
+  height: auto;
+  /*min-height: 100px;*/
+  /*Center*/
+  display: block;
+  margin: 10px auto;
+  /*padding-top: 35px;*/
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+
+.recyclable {
+  color: #0184cc;
+}
+.no-recyclable {
+  color: #01a951;
+}
+
+.back-recyclable {
+  background: #11a0dc;
+}
+.back-no-recyclable {
+  background: #3db450;
+}
+
+.subcat-list-item {
+  padding: 10px 10px 10px 10px;
+  /*padding-right: 40px;*/
+}
+
+.subcat-examples {
+  white-space: pre;
+  /*padding-right: 40px;*/
+  line-height: 1.2;
+}
+
+.waste-type-name {
+  font-family:'ArialRounded', sans-serif;
+  /*line-height: 16px;*/
+  font-size: 22px;
+  /*margin-bottom: 8px;*/
+}
