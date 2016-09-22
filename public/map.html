@@ -72,11 +72,16 @@
 
 
 
-    $('input').on('click',function(){
+        var popup = L.popup();
 
+        function onMapClick(e)  {
+            popup
+                .setLatLng(e.latlng)
+                .setContent(e.latlng.lng + ", " + e.latlng.lat)
+                .openOn(map);
+        }
 
-      console.log('readu');
-    })
+        map.on('click', onMapClick);
 
 
 
