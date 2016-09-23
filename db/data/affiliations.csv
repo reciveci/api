@@ -1,3 +1,7 @@
-name,city_id
-Asociación de Recicladores SONREÍR,1
-Asociación de Recicladores FLORECER,1
+name,city_id,sector,email,phone1,publish,direccion,latitude,longitud
+Asociación de Recicladores SONREÍR,1,,,,,,,
+Asociación de Recicladores FLORECER,1,,,,,,,
+"Asociación de Gestores Ambientales Cuidando el Mundo ""ASOACMUN"" - CEGAM ELOY ALFARO",1,Sur,,0998987555,1,"Barrio La Santiago, Calle Amancay S/N (Antiguas Lavanderías de La Santiago)",-0.252367,-78.540982
+Asociación de Gestores Ambientales El Valle - CEGAM TUMBACO,1,Oriente,,0987372540,1,"Parroquia de Pifo, Sector Chaupimolino, Pasaje los Eucaliptos, Lote 9, E35",,
+Asociación de Gestores Ambientales del Distrito Metropolitano de Quito - CEGAM LA DELICIA,1,Norte,,0987152582,1,Av. Eloy Alfaro y De Los Aceitunos,-0.1137041299,-78.4743118286
+Asociación de Recicladores Buena Esperanza de Pichincha,1,Centro,amora@emaseo.gob.ec,,1,Av. 24 de Mayo S/N y Pichincha,,

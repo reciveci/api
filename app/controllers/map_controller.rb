@@ -88,7 +88,7 @@ class MapController < ApplicationController
 
   def affiliations
 
-      @affiliations= Affiliation.all
+      @affiliations= Affiliation.where(publish: true).where("latitude IS NOT NULL AND longitud IS NOT NULL")
       url_prefix = serverUrl(request)
 
       @geojson_y = Array.new
@@ -96,7 +96,7 @@ class MapController < ApplicationController
 
 
       @affiliations.each do |affiliation|
-        if(affiliation.publish==true)
+        # if(affiliation.publish==true)
           @geojson_y << {
             type: 'Feature',
             geometry: {
@@ -114,7 +114,7 @@ class MapController < ApplicationController
             }
           }
 
-        end
+        # end
       end
 
     respond_to do |format|
