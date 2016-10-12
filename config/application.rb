@@ -8,22 +8,33 @@ Bundler.require(*Rails.groups)
 
 
 module Rails4Example
-  class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    class Application < Rails::Application
+        # Settings in config/environments/* take precedence over those specified here.
+        # Application configuration should go into files in config/initializers
+        # -- all .rb files in that directory are automatically loaded.
 
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+        # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+        # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
+        # config.time_zone = 'Central Time (US & Canada)'
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    #config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    #config.i18n.default_locale = :es
+        # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+        #config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+        #config.i18n.default_locale = :es
 
-    config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    config.serve_static_assets = true
+        config.autoload_paths += %W(#{config.root}/lib)
+        config.autoload_paths += Dir["#{config.root}/lib/**/"]
+        #    config.serve_static_assets = true
+        config.serve_static_files = true
 
-  end
+        config.middleware.use Rack::Cors do
+            allow do
+                origins '*'
+                resource '*',
+                :headers => :any,
+                :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+                :methods => [:get, :post, :options, :delete, :put]
+            end
+        end
+
+    end
 end

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-gem 'rails', '4.1.4'
+#gem 'rails', '4.1.4'
+gem 'rails', '4.2.0'
 
 ### OpenShift Online changes:
 
@@ -85,6 +86,12 @@ gem 'bootstrap-datepicker-rails'
 gem 'geocoder'
 
 gem "rails_autolink"
+
+gem 'devise_token_auth' # Token based authentication for Rails JSON APIs
+gem 'omniauth' # required for devise_token_auth
+gem 'rack-cors', :require => 'rack/cors' #for allow cross origin requests.
+gem 'mailcatcher'
+
 
 
 

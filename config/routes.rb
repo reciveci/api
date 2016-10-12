@@ -1,20 +1,29 @@
 Rails.application.routes.draw do
 
-
-
-
-
-  resources :sectors
-
-  resources :colors
-
-
-  resources :cities
-
-  #scope "(:locale)", locale:  /es|en/ do
-
     #establecemos el controlador registrations personalizado para usarlo en Devise
     devise_for :users, :controllers => {:registrations => "registrations"}
+    
+    namespace :api, defaults:{ format: :json } do
+        scope :v1 do
+            #resources :api_articles, :only => [:show, :create, :update, :destroy, :index]
+            #            get     "/articles",     to: "api_articles#index"
+            #            post    "/articles",     to: "api_articles#create"
+            #            get     "/articles/:id", to: "api_articles#show"
+            #            put     "/articles/:id", to: "api_articles#update"
+            #            delete  "/articles/:id", to: "api_articles#destroy"
+            mount_devise_token_auth_for 'UserApp', at: 'auth'
+        end
+    end
+
+    resources :sectors
+
+    resources :colors
+
+
+    resources :cities
+
+    #scope "(:locale)", locale:  /es|en/ do
+
     devise_scope :user do
         get '/login' => 'devise/sessions#new'
         get '/logout' => 'devise/sessions#destroy'
@@ -35,7 +44,7 @@ Rails.application.routes.draw do
 
 
 
-     resources :businesses
+    resources :businesses
     get 'map/business'
 
 
@@ -71,20 +80,8 @@ Rails.application.routes.draw do
 
     get 'separate' => 'separate#complete'
 
-    #creacion de rutas para el uso del API  de articles
-    namespace :api, defaults:{ format: :json } do
-      namespace :v1 do
-        #resources :api_articles, :only => [:show, :create, :update, :destroy, :index]
-        get     "/articles",     to: "api_articles#index"
-        post    "/articles",     to: "api_articles#create"
-        get     "/articles/:id", to: "api_articles#show"
-        put     "/articles/:id", to: "api_articles#update"
-        delete  "/articles/:id", to: "api_articles#destroy"
-      end
-    end
-
     #panel donde se encontrara el menu de navegacion para acceder a todas las pantallas de administracion
-     get '/admin' => 'panel#index'
-  end
+    get '/admin' => 'panel#index'
+end
 
 #end
