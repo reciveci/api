@@ -26,3 +26,5 @@
 
 # Ignore images in affiliations
 #/public/**/affiliations/*
+# Ignore application configuration
+/config/application.yml
