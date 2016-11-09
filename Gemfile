@@ -93,8 +93,7 @@ gem 'rack-cors', :require => 'rack/cors' #for allow cross origin requests.
 gem 'mailcatcher' #servidor de correo para pruebas de login
 gem "figaro" #gema para configuraciond e variables de entorno
 
-gem 'omniauth-github'
 gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 
 
